@@ -1,0 +1,19 @@
+{
+  "name": "klai_malek_01_petitsplats_062023",
+  "version": "1.0.0",
+  "description": "Développer un algorithme de recherche en JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Klaimalek/Klai_Malek_01_PetitsPlats_062023.git"
+  },
+  "author": "Klai Malek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Klaimalek/Klai_Malek_01_PetitsPlats_062023/issues"
+  },
+  "homepage": "https://github.com/Klaimalek/Klai_Malek_01_PetitsPlats_062023#readme"
+}
