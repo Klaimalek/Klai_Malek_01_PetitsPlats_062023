@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Klaimalek/Klai_Malek_01_PetitsPlats_062023/issues"
   },
-  "homepage": "https://github.com/Klaimalek/Klai_Malek_01_PetitsPlats_062023#readme"
+  "homepage": "https://github.com/Klaimalek/Klai_Malek_01_PetitsPlats_062023#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.0"
+  }
 }
