@@ -1,6 +1,10 @@
+ @import"variable";
 .header {
   width: 100%;
   height: 500px;
+  display: flex;
+  align-items: center;
+  
 }
 .background-header {
   width: 100%;
@@ -17,24 +21,27 @@
 .title-header {
   position: absolute;
   color: yellow;
-  font-size: 44px;
-  padding-left: 300px;
-  width: 83%;
+  font-size: 40px;
+  padding-left: 307px;
+  width: 69%;
   top: 12%;
   text-align: center;
+  font-family: $fontAnton;
+  
 }
 .search-form {
   display: flex;
   border-radius: 11px;
   background-color: white;
-  width: 70%;
+  width: 60%;
   position: absolute;
-  top: 44%;
-  right: 11%;
+  top: 33%;
+  right: 25%;
 
 }
 .form-search {
   border: none;
+  border: transparent;
   max-width: 945px;
   width: 80%;
   height: 40px;
@@ -60,4 +67,12 @@
     padding-top: 10px;
     margin-top: 3px;
     margin-bottom: 3px;
+}
+.header-sous-titre{
+  position: fixed;
+  top: 4%;
+  right: 87%;
+  font-family: $fontAnton;
+  color: $colorwhite;
+  
 }
