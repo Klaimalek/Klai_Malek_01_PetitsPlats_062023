@@ -1,6 +1,6 @@
  function factoryRecipeCard(data){
     const {name,image, ingredients, time, description }=data;
-    getCardRecipeHeader()=>{
+   function getCardRecipeHeader(){
         const CardRecipeHeader=`
         <div class='article-recipe'>
           <div class='header-card'>
@@ -11,14 +11,14 @@
         </div>`;
         return CardRecipeHeader;
     }
-    getCardDescription()=>{
+   function getCardDescription(){
         let recipeIngredients = "";
         ingredients.forEach((elt) => {
             const NameRecipe = elt.ingredient;
-            const quantityRecipe = elt.quantity ? element.quantity : "";
-            const unitRecipe = elt.unit ? element.unit : "";
+            const quantityRecipe = elt.quantity ? elt.quantity : "";
+            const unitRecipe = elt.unit ? elt.unit : "";
       
-            recipeIngredients  += `
+            recipeIngredients += `
               <li class="item-ingredient-recipe-card">
                   <p class="ingredient-name-card">${NameRecipe}:</p>
                   <p class="ingredient-quantity-card">${quantityRecipe} ${unitRecipe}</p>
@@ -30,17 +30,17 @@
           <h6 class='subtitle'>RECETTE</h6>
           <p class ='description-card'>${description}
           </p>
-          <ul class='list-ingredients'>${recipeCardIngredients}
+          <ul class='list-ingredients'>${recipeIngredients}
           </ul>
         </div>
         `;
-        returnarticleCardRecipeDescription;
+        return articleCardRecipeDescription;
     }
-    getRecipeCard()=>{
+    function getRecipeCard(){
         const articleRecipe = document.createElement('article');
          articleRecipe.className += "article-recipe";
-         articleRecipe.innerHTML += getRecipeCardHeaderDOM();
-         articleRecipe.innerHTML += getRecipeCardDescDOM();
+         articleRecipe.innerHTML += getCardRecipeHeader();
+         articleRecipe.innerHTML += getCardDescription();
 
     return articleRecipe ;
     }
