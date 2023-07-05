@@ -1825,4 +1825,4 @@ const recipesArray = [
     ustensils: ['rouleau à patisserie', 'fouet'],
   },
 ];
-export default recipesArray;
+export default recipesArray.slice(0, 5);

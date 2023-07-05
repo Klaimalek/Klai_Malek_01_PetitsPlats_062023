@@ -1,78 +1,60 @@
- @import"variable";
-.header {
-  width: 100%;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  
-}
-.background-header {
-  width: 100%;
-  height: 100%;
-}
-.background-img-header {
-  max-width: 1440px;
-  max-height: 300px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: relative;
-}
-.title-header {
-  position: absolute;
-  color: yellow;
-  font-size: 40px;
-  padding-left: 307px;
-  width: 69%;
-  top: 12%;
-  text-align: center;
-  font-family: $fontAnton;
-  
-}
-.search-form {
-  display: flex;
-  border-radius: 11px;
-  background-color: white;
-  width: 60%;
-  position: absolute;
-  top: 33%;
-  right: 25%;
+@import "variable";
 
-}
-.form-search {
-  border: none;
-  border: transparent;
-  max-width: 945px;
-  width: 80%;
-  height: 40px;
-  text-align: center;
-  border-radius: 11px;
- 
-}
-.search-icon {
-  background-color: white;
-  width: 6%;
-  height: 40px;
-  display: flex;
-  margin-left: 6rem;
-  text-align: center;
-  border-radius: 11px;
+.banner {
+    background-image: url(/assets/background-search.png);
+    height: 653px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    padding: 35px;
 
+    &-logo {
+        margin-bottom: 12rem;
+    }
+
+    &-content {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .banner-title {
+            font-size: 44px;
+            color: rgba(255, 209, 91, 1);
+        }
+
+        &__search-form-wrapper {
+            display: flex;
+            justify-content: center;
+
+            .form-search {
+                min-width: 750px;
+                height: 60px;
+                border-radius: 15px 0 0 15px;
+                border: none;
+                padding-left: 30px;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &__button {
+                    border: none;
+                    background: white;
+                    padding: 10px;
+                    border-radius: 0 15px 15px 0;
+
+                    > i {
+                        background: black;
+                        padding: 13px;
+                        color: white;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+
+    }
 }
-.fa-solid{
-    color:white;
-    background-color: black;
-    border-radius: 5px;
-    width: 100%;
-    padding-top: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-}
-.header-sous-titre{
-  position: fixed;
-  top: 4%;
-  right: 87%;
-  font-family: $fontAnton;
-  color: $colorwhite;
-  
-}
+
+
