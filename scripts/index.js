@@ -220,9 +220,7 @@ function handleFiltersDropdown() {
     });
   });
 
-  console.log(researchtag);
   // recherche en se basant sur les tags
-  
   searchByTag(researchtag);
   return {
     researchtag: researchtag,
@@ -233,6 +231,34 @@ function searchByTag(researchtag,recipesFilter=[]) {
   if (!recipesFilter){
     recipesFilter= recipesArray;
   }
+   for (let item_1 of researchtag){
+    for (let item_2 of recipesFilter){
+       // filtre par appareil
+       if (
+        item_2.appliance.toLowerCase() ===
+        item_1.toLowerCase()
+      ) {
+        FilterDishList.push( item_2);
+      }
+      
+      // filtre par ingrédient
+      item_2.ingredients.filter((el) => {
+        if (el.ingredient.toLowerCase() === item_1.toLowerCase()) {
+          FilterDishList.push( item_2);
+        }
+      });
+      // filtre par ustensils
+       item_2.ustensils.filter((el) => {
+        if (el.toLowerCase() == item_1.toLowerCase()) {
+          FilterDishList.push(item_2);
+        }
+      });
+      // mise à jour des recette
+     UpdateRecipeCards(FilterDishList);
+     //displayRecipeCards(FilterDishList);
+    }
+   }
+  /*
   for (let i = 0; i < researchtag.length; i++) {
     for (let j = 0; j <  recipesFilter.length; j++) {
       // filtre par appareil
@@ -242,6 +268,7 @@ function searchByTag(researchtag,recipesFilter=[]) {
       ) {
         FilterDishList.push( recipesFilter[j]);
       }
+      
       // filtre par ingrédient
       recipesFilter[j].ingredients.filter((el) => {
         if (el.ingredient.toLowerCase() === researchtag[i].toLowerCase()) {
@@ -259,7 +286,9 @@ function searchByTag(researchtag,recipesFilter=[]) {
      //displayRecipeCards(FilterDishList);
      
     }
+    
   }
+  */
 }
 function UpdateRecipeCards(recipesArray) {
   const recipesSection = document.getElementById('cards-recipe');
@@ -303,7 +332,7 @@ function resetRecipesCardsSection() {
 
   recipesSection.innerHTML = null;
 }
-
+// supprimer les doublons
 function uniq(a) {
   return Array.from(new Set(a.map((element) => element.toLowerCase())));
 }
