@@ -17,7 +17,16 @@ function displayRecipeCards(recipesArray) {
   const ustensils = [];
 
   resetRecipesCardsSection();
-
+  
+  for(let i= 0; i < recipesArray.length; i++){
+    const recipeModel = factoryRecipeCard(recipesArray[i]);
+    const recipeCardDOM = recipeModel.getRecipeCard();
+    recipesSection.appendChild(recipeCardDOM);
+    ingredients.push(...recipesArray[i].ingredients);
+    ustensils.push(...recipesArray[i].ustensils);
+    appliances.push(recipesArray[i].appliance);
+  }
+  /*
   recipesArray.forEach((recipe) => {
     const recipeModel = factoryRecipeCard(recipe);
     const recipeCardDOM = recipeModel.getRecipeCard();
@@ -27,7 +36,7 @@ function displayRecipeCards(recipesArray) {
     ustensils.push(...recipe.ustensils);
     appliances.push(recipe.appliance);
   });
-
+*/
   hydrateApplianceFilter(appliances);
   hydrateIngredientsFilter(
     ingredients.map((ingredient) => ingredient.ingredient)
@@ -243,6 +252,7 @@ function searchByTag(researchtag,recipesFilter=[]) {
       
       // filtre par ingrédient
       item_2.ingredients.filter((el) => {
+ 
         if (el.ingredient.toLowerCase() === item_1.toLowerCase()) {
           FilterDishList.push( item_2);
         }
