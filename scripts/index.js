@@ -42,18 +42,12 @@ function hydrateIngredientsFilter(ingredientsList) {
   let ingredientsListString = '';
   const dropdownFilterListIngredients =
     document.getElementById('ingredients-list');
-    /*if(ingredientsList.length > 0) {
-      for ( let i of ingredientsList){
-        ingredientsListString += ` <li class="dropdown-filter__list--item">${ingredientsList[i]}</li>`;
-      }
-    }
-*/
+  
   if (ingredientsList.length > 0) {
-    uniq(ingredientsList).forEach((ingredientName) => {
-      ingredientsListString += `
-            <li class="dropdown-filter__list--item">${ingredientName}</li>
-        `;
-    });
+   
+   for( let i= 0; i< ingredientsList.length; i++){
+    ingredientsListString += `<li class="dropdown-filter__list--item">${ingredientsList[i]}</li>`
+   }
   }
   
   dropdownFilterListIngredients.innerHTML = ingredientsListString;
@@ -62,20 +56,12 @@ function hydrateIngredientsFilter(ingredientsList) {
 function hydrateApplianceFilter(appliances) {
   let applianceListString = '';
   const dropdownFilterListAppliance = document.getElementById('appareils-list');
-    /*
-  if(appliances.length > 0){
-    for(let i of appliances){
-      applianceListString += `
-            <li class="dropdown-filter__list--item">${appliances[i]}</li>
-        `;
-    }
-  }*/
+  
   if (appliances.length > 0) {
-    uniq(appliances).forEach((appliance) => {
-      applianceListString += `
-            <li class="dropdown-filter__list--item">${appliance}</li>
-        `;
-    });
+  
+   for( let j= 0; j < appliances.length; j++){
+    applianceListString += `<li class="dropdown-filter__list--item">${appliances[j]}</li>`;
+   }
   }
 
   dropdownFilterListAppliance.innerHTML = applianceListString;
@@ -87,11 +73,11 @@ function hydrateUstensilsFilter(ustensilsList) {
     document.getElementById('ustensiles-list');
 
   if (ustensilsList.length > 0) {
-    uniq(ustensilsList).forEach((utensil) => {
+    for ( let i = 0; i< ustensilsList.length; i++ ){
       ustensilsListString += `
-            <li class="dropdown-filter__list--item">${utensil}</li>
+            <li class="dropdown-filter__list--item">${ustensilsList[i]}</li>
         `;
-    });
+    }
   }
 
   dropdownFilterListUstensils.innerHTML = ustensilsListString;
@@ -197,13 +183,14 @@ function handleFiltersDropdown() {
 
       //__ TODO : Faire le systeme qui permet de filtrer les ingredients
       // filter les trois lites
-      recipesArray.forEach((recipe) => {
-        ingredientsTemp.push(...recipe.ingredients);
-        ustensilsTemp.push(...recipe.ustensils);
-        appliancesTemp.push(recipe.appliance);
-      });
+     
+      for( let i= 0; i < recipesArray.length; i++){
+        ingredientsTemp.push(...recipesArray[i].ingredients);
+        ustensilsTemp.push(...recipesArray[i].ustensils);
+        appliancesTemp.push(...recipesArray[i].appliance);
+      }
       for(let i= 0; i < ingredientsTemp.length; i++){
-        let resultFilter = ingredientsTemp[1].ingredient
+        let resultFilter = ingredientsTemp[i].ingredient
           .toLowerCase()
           .includes(valueToSearch.toLowerCase());
           if (resultFilter) {
