@@ -202,35 +202,30 @@ function handleFiltersDropdown() {
         ustensilsTemp.push(...recipe.ustensils);
         appliancesTemp.push(recipe.appliance);
       });
-
-      ingredientsTemp.forEach((word) => {
-        let resultFilter = word.ingredient
+      for(let i= 0; i < ingredientsTemp.length; i++){
+        let resultFilter = ingredientsTemp[1].ingredient
           .toLowerCase()
           .includes(valueToSearch.toLowerCase());
-        if (resultFilter) {
-          arrayOfFiltredIng.push(word.ingredient);
+          if (resultFilter) {
+            arrayOfFiltredIng.push(ingredientsTemp[i].ingredient);
+          }
+          hydrateIngredientsFilter(arrayOfFiltredIng);
+      }
+      
+      for (let i= 0; i< ustensilsTemp.length; i++){
+        let resultFilter = ustensilsTemp[i].toLowerCase.includes(valueToSearch).toLowerCase;
+        if( resultFilter){
+          arrayOfFiltredus.push(ustensilsTemp[i]);
         }
-      });
-      hydrateIngredientsFilter(arrayOfFiltredIng);
-
-      ustensilsTemp.forEach((word) => {
-        let resultFilter = word
-          .toLowerCase()
-          .includes(valueToSearch.toLowerCase());
-        if (resultFilter) {
-          arrayOfFiltredus.push(word);
+        hydrateUstensilsFilter(arrayOfFiltredus);
+      }
+     
+      for( let i= 0; i < appliancesTemp.length; i++){
+        let resultFilter = appliancesTemp[i].toLowerCase.includes(valueToSearch).toLowerCase;
+        if( resultFilter){
+          arrayOfFiltredap.push(appliancesTemp[i]);
         }
-      });
-      hydrateUstensilsFilter(arrayOfFiltredus);
-
-      appliancesTemp.forEach((word) => {
-        let resultFilter = word
-          .toLowerCase()
-          .includes(valueToSearch.toLowerCase());
-        if (resultFilter) {
-          arrayOfFiltredap.push(word);
-        }
-      });
+      }
       hydrateApplianceFilter(arrayOfFiltredap);
     });
   });
