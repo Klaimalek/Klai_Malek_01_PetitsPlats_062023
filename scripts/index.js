@@ -28,12 +28,12 @@ function displayRecipeCards(recipesArray) {
   }
 
   hydrateApplianceFilter(appliances);
-  
-  hydrateIngredientsFilter(
-   ingredients.map((ingredient) => ingredient.ingredient)
+  let ingredientsNames=[];
+  for (let i = 0; i < ingredients.length; i++){
+     ingredientsNames.push(ingredients[i].ingredient);
+  }
+  hydrateIngredientsFilter(ingredientsNames);
    
-  );
- 
   hydrateUstensilsFilter(ustensils);
 }
 
@@ -304,8 +304,12 @@ function resetRecipesCardsSection() {
   recipesSection.innerHTML = null;
 }
 // supprimer les doublons
-function uniq(a) {
-  return Array.from(new Set(a.map((element) => element.toLowerCase())));
+function uniq(array) {
+  let arrayFormated=[];
+  for( let i=0; i < array.length;i++){
+   arrayFormated.push(array[i].toLowerCase());
+  }
+  return Array.from(new Set(arrayFormated));
 }
 
 (function init() {
