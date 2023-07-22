@@ -93,8 +93,24 @@ function handleGlobalSearch() {
     const tagsIsUsed = document.querySelector('.section-tags');
 
     if (inputValue.length >= 3) {
+      const recipesFiltered=[];
+      for(let i=0; i< recipesArray.length; i++){
+        const name = recipesArray[i].name.toLowerCase();
+        const description= recipesArray[i].description.toLowerCase();
+        let ingredientIsIn= false;
+        for( let y=0; y <recipesArray[i].ingredients.length;y++ ){
+        
+          if(recipesArray[i].ingredients[y].ingredient.toLowerCase().includes(inputValue)){
+            ingredientIsIn = true;
+          } 
+        }
+        if( name.includes(inputValue) || description.includes(inputValue)|| ingredientIsIn){
+          recipesFiltered.push(recipesArray[i]);
+        }
+      }
+      /*
       const recipesFiltered = recipesArray.filter((recipe) => {
-        const matchIngredient = recipe.ingredients.find((ingredient) =>
+        const matchIngredient = recipe.ingredients.some((ingredient) =>
           ingredient.ingredient.includes(inputValue)
         );
 
@@ -104,7 +120,7 @@ function handleGlobalSearch() {
           matchIngredient
         );
       });
-
+*/
       displayRecipeCards(recipesFiltered);
 
       searchByTag(researchtag, recipesFiltered);
