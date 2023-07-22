@@ -135,7 +135,6 @@ function handleGlobalSearch() {
  */
 function handleFiltersDropdown() {
   const dropdownFilters = document.querySelectorAll('.dropdown-filter');
-  
   dropdownFilters.forEach(function (dropdownFilter) {
     const arrow = dropdownFilter.querySelector('.fa-chevron-down');
     const listItem = dropdownFilter.querySelector('.dropdown-filter__list');
@@ -244,8 +243,6 @@ function searchByTag(researchtag, recipesFilter = []) {
   if (!recipesFilter) {
     recipesFilter = recipesArray;
   }
-
-  
   for (let i = 0; i < researchtag.length; i++) {
     for (let j = 0; j <  recipesFilter.length; j++) {
       // filtre par appareil
