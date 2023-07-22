@@ -215,7 +215,7 @@ function handleFiltersDropdown() {
       }
       
       for (let i= 0; i< ustensilsTemp.length; i++){
-        let resultFilter = ustensilsTemp[i].toLowerCase.includes(valueToSearch).toLowerCase;
+        let resultFilter = ustensilsTemp[i].toLowerCase().includes(valueToSearch).toLowerCase;
         if( resultFilter){
           arrayOfFiltredus.push(ustensilsTemp[i]);
         }
@@ -223,7 +223,7 @@ function handleFiltersDropdown() {
       }
      
       for( let i= 0; i < appliancesTemp.length; i++){
-        let resultFilter = appliancesTemp[i].toLowerCase.includes(valueToSearch).toLowerCase;
+        let resultFilter = appliancesTemp[i].toLowerCase().includes(valueToSearch).toLowerCase;
         if( resultFilter){
           arrayOfFiltredap.push(appliancesTemp[i]);
         }
