@@ -23,7 +23,11 @@ h1 {
 .main {
     max-width: 1100px;
     margin: auto;
-
+    .number-recipe{
+        position: relative;
+        
+    }
+    
     .section-dropdown {
         display: flex;
         gap: 40px;
