@@ -18,6 +18,8 @@ function displayRecipeCards(recipesArray) {
 
   resetRecipesCardsSection();
 
+  getTotalNumberRecipe(recipesArray);
+
   recipesArray.forEach((recipe) => {
     const recipeModel = factoryRecipeCard(recipe);
     const recipeCardDOM = recipeModel.getRecipeCard();
@@ -106,8 +108,7 @@ function handleGlobalSearch() {
       });
 
       displayRecipeCards(recipesFiltered);
-      
-      searchByTag(researchtag,recipesFiltered);
+      searchByTag(researchtag, recipesFiltered);
     } else {
       displayRecipeCards(recipesArray);
     }
@@ -162,7 +163,7 @@ function handleFiltersDropdown() {
         researchtag.filter((x, i) => researchtag.indexOf(x) === i);
         console.log('researchtag', researchtag);
         // appel fonction recherche
-        searchByTag(researchtag,recipesArray);
+        searchByTag(researchtag, recipesArray);
       }
     });
 
@@ -226,38 +227,36 @@ function handleFiltersDropdown() {
     researchtag: researchtag,
   };
 }
-function searchByTag(researchtag,recipesFilter=[]) {
+function searchByTag(researchtag, recipesFilter = []) {
   let FilterDishList = [];
-  if (!recipesFilter){
-    recipesFilter= recipesArray;
+  if (!recipesFilter) {
+    recipesFilter = recipesArray;
   }
-   for (let item_1 of researchtag){
-    for (let item_2 of recipesFilter){
-       // filtre par appareil
-       if (
-        item_2.appliance.toLowerCase() ===
-        item_1.toLowerCase()
-      ) {
-        FilterDishList.push( item_2);
+  for (let item_1 of researchtag) {
+    for (let item_2 of recipesFilter) {
+      // filtre par appareil
+      if (item_2.appliance.toLowerCase() === item_1.toLowerCase()) {
+        FilterDishList.push(item_2);
       }
-      
+
       // filtre par ingrédient
       item_2.ingredients.filter((el) => {
         if (el.ingredient.toLowerCase() === item_1.toLowerCase()) {
-          FilterDishList.push( item_2);
+          FilterDishList.push(item_2);
         }
       });
       // filtre par ustensils
-       item_2.ustensils.filter((el) => {
+      item_2.ustensils.filter((el) => {
         if (el.toLowerCase() == item_1.toLowerCase()) {
           FilterDishList.push(item_2);
         }
       });
       // mise à jour des recette
-     UpdateRecipeCards(FilterDishList);
-     //displayRecipeCards(FilterDishList);
+      UpdateRecipeCards(FilterDishList);
+      getTotalNumberRecipe(FilterDishList);
+      //displayRecipeCards(FilterDishList);
     }
-   }
+  }
   /*
   for (let i = 0; i < researchtag.length; i++) {
     for (let j = 0; j <  recipesFilter.length; j++) {
@@ -336,7 +335,21 @@ function resetRecipesCardsSection() {
 function uniq(a) {
   return Array.from(new Set(a.map((element) => element.toLowerCase())));
 }
-
+// calculer la somme totale ses recettes
+function getTotalNumberRecipe(recipesArray) {
+  let sumRecipe = 0;
+  let numberRecipe = 0;
+  const totalNumber = document.getElementsByClassName('number');
+  /*console.log(totalNumber);
+  recipesArray.forEach((recipe) => {
+    numberRecipe = Number(recipe.id);
+  });
+  console.log(numberRecipe);*/
+  if (recipesArray != undefined) {
+    totalNumber[0].innerHTML = recipesArray.length;
+  }
+}
+getTotalNumberRecipe();
 (function init() {
   displayRecipeCards(recipesArray);
   handleFiltersDropdown();
