@@ -2,3 +2,9 @@
 @import "header";
 @import "variable";
 @import "mixines";
+
+.number-recipe{
+    position: relative;
+    left: 20%;
+    border: 20px red;
+}
