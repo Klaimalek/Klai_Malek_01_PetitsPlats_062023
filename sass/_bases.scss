@@ -21,13 +21,9 @@ h1 {
 }
 
 .main {
+
     max-width: 1100px;
     margin: auto;
-    .number-recipe{
-        position: relative;
-        
-    }
-    
     .section-dropdown {
         display: flex;
         gap: 40px;
@@ -92,7 +88,7 @@ h1 {
                 }
             }
         }
-
+       
         .open {
             display: block;
         }
@@ -100,6 +96,7 @@ h1 {
         .close {
             display: none;
         }
+        
     }
 
     .section-tags {
