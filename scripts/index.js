@@ -18,7 +18,7 @@ function displayRecipeCards(recipesArray) {
 
   resetRecipesCardsSection();
 
-  getTotalNumberRecipe(recipesArray);
+  getTotalNumberRecipe(recipesArray);// appel à la fonction qui calcule la somme des recettes
 
   recipesArray.forEach((recipe) => {
     const recipeModel = factoryRecipeCard(recipe);
@@ -254,40 +254,10 @@ function searchByTag(researchtag, recipesFilter = []) {
       // mise à jour des recette
       UpdateRecipeCards(FilterDishList);
       getTotalNumberRecipe(FilterDishList);
-      //displayRecipeCards(FilterDishList);
-    }
-  }
-  /*
-  for (let i = 0; i < researchtag.length; i++) {
-    for (let j = 0; j <  recipesFilter.length; j++) {
-      // filtre par appareil
-      if (
-        recipesFilter[j].appliance.toLowerCase() ===
-        researchtag[i].toLowerCase()
-      ) {
-        FilterDishList.push( recipesFilter[j]);
-      }
-      
-      // filtre par ingrédient
-      recipesFilter[j].ingredients.filter((el) => {
-        if (el.ingredient.toLowerCase() === researchtag[i].toLowerCase()) {
-          FilterDishList.push( recipesFilter[j]);
-        }
-      });
-      // filtre par ustensils
-       recipesFilter[j].ustensils.filter((el) => {
-        if (el.toLowerCase() == researchtag[i].toLowerCase()) {
-          FilterDishList.push(recipesFilter[j]);
-        }
-      });
-      // mise à jour des recette
-     UpdateRecipeCards(FilterDishList);
-     //displayRecipeCards(FilterDishList);
-     
-    }
     
+    }
   }
-  */
+ 
 }
 function UpdateRecipeCards(recipesArray) {
   const recipesSection = document.getElementById('cards-recipe');
@@ -340,16 +310,10 @@ function getTotalNumberRecipe(recipesArray) {
   let sumRecipe = 0;
   let numberRecipe = 0;
   const totalNumber = document.getElementsByClassName('number');
-  /*console.log(totalNumber);
-  recipesArray.forEach((recipe) => {
-    numberRecipe = Number(recipe.id);
-  });
-  console.log(numberRecipe);*/
   if (recipesArray != undefined) {
     totalNumber[0].innerHTML = recipesArray.length;
   }
 }
-getTotalNumberRecipe();
 (function init() {
   displayRecipeCards(recipesArray);
   handleFiltersDropdown();
