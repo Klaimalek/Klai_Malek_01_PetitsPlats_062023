@@ -15,9 +15,8 @@ function displayRecipeCards(recipesArray) {
   const ingredients = [];
   const appliances = [];
   const ustensils = [];
-
   resetRecipesCardsSection();
-
+  getTotalNumberRecipe(recipesArray);// appel à la fonction qui calcule la somme des recettes
   for (let i = 0; i < recipesArray.length; i++) {
     const recipeModel = factoryRecipeCard(recipesArray[i]);
     const recipeCardDOM = recipeModel.getRecipeCard();
@@ -267,7 +266,7 @@ function searchByTag(researchtag, recipesFilter = []) {
       });
       // mise à jour des recette
      UpdateRecipeCards(FilterDishList);
-     //displayRecipeCards(FilterDishList);
+     getTotalNumberRecipe(FilterDishList);
      
     }
     
@@ -324,7 +323,14 @@ function uniq(array) {
   }
   return Array.from(new Set(arrayFormated));
 }
-
+function getTotalNumberRecipe(recipesArray) {
+  let sumRecipe = 0;
+  let numberRecipe = 0;
+  const totalNumber = document.getElementsByClassName('number');
+  if (recipesArray != undefined) {
+    totalNumber[0].innerHTML = recipesArray.length;
+  }
+}
 (function init() {
   displayRecipeCards(recipesArray);
   handleFiltersDropdown();
