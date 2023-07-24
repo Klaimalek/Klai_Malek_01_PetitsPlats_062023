@@ -18,7 +18,7 @@ function displayRecipeCards(recipesArray) {
 
   resetRecipesCardsSection();
 
-  getTotalNumberRecipe(recipesArray);// appel à la fonction qui calcule la somme des recettes
+  getTotalNumberRecipe(recipesArray); // appel à la fonction qui calcule la somme des recettes
 
   recipesArray.forEach((recipe) => {
     const recipeModel = factoryRecipeCard(recipe);
@@ -223,6 +223,7 @@ function handleFiltersDropdown() {
 
   // recherche en se basant sur les tags
   searchByTag(researchtag);
+  researchtag = uniq(researchtag);
   return {
     researchtag: researchtag,
   };
@@ -254,19 +255,22 @@ function searchByTag(researchtag, recipesFilter = []) {
       // mise à jour des recette
       UpdateRecipeCards(FilterDishList);
       getTotalNumberRecipe(FilterDishList);
-    
     }
   }
- 
 }
 function UpdateRecipeCards(recipesArray) {
   const recipesSection = document.getElementById('cards-recipe');
   resetRecipesCardsSection();
-  recipesArray.forEach((recipe) => {
-    const recipeModel = factoryRecipeCard(recipe);
-    const recipeCardDOM = recipeModel.getRecipeCard();
-    recipesSection.appendChild(recipeCardDOM);
-  });
+  if (recipesArray.length > 0) {
+    
+    recipesArray = Array.from(new Set(recipesArray.map((element) => element)));
+    recipesArray.forEach((recipe) => {
+      const recipeModel = factoryRecipeCard(recipe);
+      const recipeCardDOM = recipeModel.getRecipeCard();
+      recipesSection.appendChild(recipeCardDOM);
+    });
+  }
+  console.log('doublon', recipesArray);
 }
 
 // supprimer les tag
