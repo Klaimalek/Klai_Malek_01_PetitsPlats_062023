@@ -323,6 +323,7 @@ function uniq(array) {
   }
   return Array.from(new Set(arrayFormated));
 }
+// calccul la somme des recettes
 function getTotalNumberRecipe(recipesArray) {
   let sumRecipe = 0;
   let numberRecipe = 0;
