@@ -91,9 +91,6 @@ function handleGlobalSearch() {
 
   searchInput.addEventListener('input', function (event) {
     const inputValue = event.target.value.toLowerCase();
-
-    const tagsIsUsed = document.querySelector('.section-tags');
-
     if (inputValue.length >= 3) {
       const recipesFiltered = recipesArray.filter((recipe) => {
         const matchIngredient = recipe.ingredients.find((ingredient) =>
@@ -110,8 +107,9 @@ function handleGlobalSearch() {
       displayRecipeCards(recipesFiltered);
       searchByTag(researchtag, recipesFiltered);
     } else {
-      displayRecipeCards(recipesArray);
+       displayRecipeCards(recipesArray);
     }
+    
   });
 }
 /**
@@ -316,6 +314,10 @@ function getTotalNumberRecipe(recipesArray) {
   const totalNumber = document.getElementsByClassName('number');
   if (recipesArray != undefined) {
     totalNumber[0].innerHTML = recipesArray.length;
+  }
+  if(totalNumber[0].innerHTML == 0){
+    const recipesSection = document.getElementById('cards-recipe');
+       recipesSection.innerHTML="Aucune recette ne correspond à votre critère";
   }
 }
 (function init() {
