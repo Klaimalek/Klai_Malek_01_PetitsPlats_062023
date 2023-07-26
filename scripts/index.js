@@ -331,6 +331,10 @@ function getTotalNumberRecipe(recipesArray) {
   if (recipesArray != undefined) {
     totalNumber[0].innerHTML = recipesArray.length;
   }
+  if(totalNumber[0].innerHTML == 0){
+    const recipesSection = document.getElementById('cards-recipe');
+       recipesSection.innerHTML="Aucune recette ne correspond à votre critère";
+  }
 }
 (function init() {
   displayRecipeCards(recipesArray);
