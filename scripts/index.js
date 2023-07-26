@@ -233,6 +233,7 @@ function handleFiltersDropdown() {
   
   // recherche en se basant sur les tags
   searchByTag(researchtag);
+  researchtag = uniq(researchtag);
   return {
     researchtag: researchtag,
   };
