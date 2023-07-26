@@ -38,28 +38,32 @@ function displayRecipeCards(recipesArray) {
 
 /** remplir la liste des ingédients */
 function hydrateIngredientsFilter(ingredientsList) {
+  let ingredientListFiltred = uniq(ingredientsList);// supprimer les doublons dans la liste des ingredients
   let ingredientsListString = '';
   const dropdownFilterListIngredients =
     document.getElementById('ingredients-list');
   
-  if (ingredientsList.length > 0) {
+  if (ingredientListFiltred.length > 0) {
    
-   for( let i= 0; i< ingredientsList.length; i++){
-    ingredientsListString += `<li class="dropdown-filter__list--item">${ingredientsList[i]}</li>`
+   for( let i= 0; i< ingredientListFiltred.length; i++){
+    ingredientsListString += `<li class="dropdown-filter__list--item">${ingredientListFiltred [i]}</li>`
    }
+  
   }
   
   dropdownFilterListIngredients.innerHTML = ingredientsListString;
+  
 }
 /** remplir la liste des appareils */
 function hydrateApplianceFilter(appliances) {
+  let applianceListFiltred = uniq(appliances);
   let applianceListString = '';
   const dropdownFilterListAppliance = document.getElementById('appareils-list');
   
-  if (appliances.length > 0) {
+  if (applianceListFiltred.length > 0) {
   
-   for( let j= 0; j < appliances.length; j++){
-    applianceListString += `<li class="dropdown-filter__list--item">${appliances[j]}</li>`;
+   for( let j= 0; j < applianceListFiltred.length; j++){
+    applianceListString += `<li class="dropdown-filter__list--item">${applianceListFiltred[j]}</li>`;
    }
   }
 
@@ -67,14 +71,15 @@ function hydrateApplianceFilter(appliances) {
 }
 /** remplir la liste des instensils */
 function hydrateUstensilsFilter(ustensilsList) {
+  let ustensilsListFiltred = uniq(ustensilsList)
   let ustensilsListString = '';
   const dropdownFilterListUstensils =
     document.getElementById('ustensiles-list');
 
-  if (ustensilsList.length > 0) {
-    for ( let i = 0; i< ustensilsList.length; i++ ){
+  if (ustensilsListFiltred.length > 0) {
+    for ( let i = 0; i< ustensilsListFiltred.length; i++ ){
       ustensilsListString += `
-            <li class="dropdown-filter__list--item">${ustensilsList[i]}</li>
+            <li class="dropdown-filter__list--item">${ustensilsListFiltred[i]}</li>
         `;
     }
   }
