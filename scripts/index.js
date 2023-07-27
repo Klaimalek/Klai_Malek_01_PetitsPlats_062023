@@ -231,13 +231,12 @@ function searchByTag(researchtag, recipesFilter = []) {
   if (!recipesFilter) {
     recipesFilter = recipesArray;
   }
-  for (let item_1 of researchtag) {
-    for (let item_2 of recipesFilter) {
+  researchtag.forEach((item_1)=>{
+    recipesFilter.forEach((item_2)=>{
       // filtre par appareil
       if (item_2.appliance.toLowerCase() === item_1.toLowerCase()) {
         FilterDishList.push(item_2);
       }
-
       // filtre par ingrédient
       item_2.ingredients.filter((el) => {
         if (el.ingredient.toLowerCase() === item_1.toLowerCase()) {
@@ -253,8 +252,8 @@ function searchByTag(researchtag, recipesFilter = []) {
       // mise à jour des recette
       UpdateRecipeCards(FilterDishList);
       getTotalNumberRecipe(FilterDishList);
-    }
-  }
+    })
+  })
 }
 function UpdateRecipeCards(recipesArray) {
   const recipesSection = document.getElementById('cards-recipe');
