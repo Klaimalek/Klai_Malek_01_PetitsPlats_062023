@@ -95,7 +95,7 @@ function handleGlobalSearch() {
 
     if (inputValue.length >= 3) {
    
-      var recipesFiltered = recipesArray.filter((recipe) => {
+      const recipesFiltered = recipesArray.filter((recipe) => {
         const matchIngredient = recipe.ingredients.find((ingredient) =>
           ingredient.ingredient.includes(inputValue)
         );
