@@ -95,7 +95,7 @@ function handleGlobalSearch() {
 
     if (inputValue.length >= 3) {
    
-      var recipesFiltered = recipesArray.filter((recipe) => {
+      const recipesFiltered = recipesArray.filter((recipe) => {
         const matchIngredient = recipe.ingredients.find((ingredient) =>
           ingredient.ingredient.includes(inputValue)
         );
@@ -309,7 +309,7 @@ function searchByTag(recipesFilter = []) {
     getTotalNumberRecipe(recipesFilter);
   }
 }
-
+/*
 function updateRecipeCards(recipesArray) {
   const recipesSection = document.getElementById('cards-recipe');
   resetRecipesCardsSection();
@@ -323,7 +323,7 @@ function updateRecipeCards(recipesArray) {
     });
   }
 }
-
+*/
 // supprimer les tag
 function deleteTags(event) {
   const target = event.target.closest('.tag');
