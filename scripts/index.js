@@ -99,22 +99,19 @@ function handleGlobalSearch() {
         const matchIngredient = recipe.ingredients.find((ingredient) =>
           ingredient.ingredient.includes(inputValue)
         );
+        console.log(matchIngredient);
         return !!(
           recipe.name.includes(inputValue.toLowerCase()) ||
           recipe.description.includes(inputValue.toLowerCase()) ||
           matchIngredient
         );
       });
-
       displayRecipeCards(recipesFiltered);
       searchByTag(recipesFiltered);
-      
-     
     }
     else {
       displayRecipeCards(recipesArray);
     }
-   
   });
 }
 function handleSearch(recipesFiltered) {
